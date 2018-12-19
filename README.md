@@ -34,6 +34,3 @@ Kevin A. Lee
 kevin.lee@microfocus.com
 
 **Please note: this plugins is provided as a "community" plugin and is not supported by Micro Focus in any way**.
-=======
-# StormRunner Load Plugin
->>>>>>> a46d9dd514d25ea3a70b10029ac7e735a188355d
