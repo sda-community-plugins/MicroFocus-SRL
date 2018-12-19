@@ -1,11 +1,11 @@
-package test.com.serena.air.srl
+package test.com.serena.air.plugin.srl
 
-import com.serena.air.srl.SRLHelper
+import com.serena.air.plugin.srl.SRLHelper
 
 def srServerUrl = "https://stormrunner-load.saas.hpe.com"
 def srUser = "klee@serena.com"
-def srPassword = "Jan18sna"
-def srTenantId = 114535109
+def srPassword = "Dec18sna"
+def srTenantId = 688301833
 
 SRLHelper srClient = new SRLHelper(srServerUrl, srUser, srPassword)
 srClient.setTenantId(srTenantId)
@@ -14,7 +14,7 @@ srClient.setDebug(true)
 srClient.login()
 
 def projectId = "1"
-def testId = "1"
+def testId = "792"
 
 String runId = srClient.runTest(projectId, testId)
 println "Test run id is ${runId}"

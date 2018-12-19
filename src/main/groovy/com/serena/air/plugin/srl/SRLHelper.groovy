@@ -1,4 +1,7 @@
-package com.serena.air.srl
+/**
+ * Helper class for interacting with the Storm Runner Load API
+ */
+package com.serena.air.plugin.srl
 
 import com.serena.air.StepFailedException
 import com.serena.air.http.HttpBaseClient
@@ -127,14 +130,6 @@ class SRLHelper extends HttpBaseClient {
         return result
     }
 
-    static boolean isNotEmpty(String str) {
-        return (str != null) && !(str.trim().isEmpty());
-    }
-
-    static boolean isEmpty(String str) {
-        return (str == null) || str.trim().isEmpty();
-    }
-
     static def fNull(def value) {
         return (value == null ? "0" : value)
     }
@@ -169,7 +164,7 @@ class SRLHelper extends HttpBaseClient {
 
 
     //
-    //
+    // HTTP Methods
     //
 
     private HttpResponse execMethod(def method) {

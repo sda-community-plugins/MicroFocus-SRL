@@ -89,8 +89,8 @@
   </related-info>
   -->
   <related-info>
-        <link description="Please refer to microfocus.com for more information." title="DA" type="WEBSITE"
-            url="https://www.microfocus.com/products/deployment-automation/"/>
+    <link title="Micro Focus Storm Runner Load website" type="WEBSITE" description="Micro Focus Storm Runner Load website"
+          url="https://www.microfocus.com/en-us/products/stormrunner-load-agile-cloud-testing/overview"/>
   </related-info>
   <!--
   **meta-html in NOT required**
@@ -132,9 +132,8 @@
       -->
 
 	  <release-note plugin-version="1">
-
-              The StormRunner Load integration provides steps to run tests, check their status and publish the results to a file.
-
+        Install this plugin to access to the steps listed below. These steps can be used when designing a component
+        process.
       </release-note>
 
   </release-notes>

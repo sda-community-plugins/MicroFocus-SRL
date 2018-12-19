@@ -10,34 +10,58 @@
         <relativePath>../plugins-build-parent/pom.xml</relativePath>
     </parent>
 
-    <artifactId>StormRunner-Load</artifactId>
+    <artifactId>MicroFocus-SRL</artifactId>
     <packaging>pom</packaging>
-    <name>StormRunner-Load</name>
+    <name>MicroFocus-SRL</name>
+    <description>MicroFocus Unified StormRunner Load (SRL) Plugin</description>
+    <version>1.0</version>
 
     <properties>
         <air.plugin.build.script.relative.path>../plugins-build-parent</air.plugin.build.script.relative.path>
+        <mininum.server.version.needed>6.2</mininum.server.version.needed>
+        <plugin.major.version>1</plugin.major.version>
+        <plugin.build.version>SNAPSHOT</plugin.build.version>
     </properties>
 
     <dependencies>
+        <!-- These dependencies are used by the ExampleRESTHelper class. -->
+        <!-- If you set scope to "runtime" the dependencies will be copied into your plugins's zip file. -->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
             <version>4.4.5</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
             <version>4.5.2</version>
         </dependency>
-
         <dependency>
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20140107</version>
-            <scope>runtime</scope>
         </dependency>
-
+        <!-- These dependencies are required for the Serena helper classes and build process. -->
+        <dependency>
+            <groupId>com.serena</groupId>
+            <artifactId>air-plugin-ant-tasks</artifactId>
+            <version>CURRENT</version>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.serena</groupId>
+            <artifactId>plugins-commons</artifactId>
+            <version>CURRENT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.serena</groupId>
+            <artifactId>plugins-commons</artifactId>
+            <version>CURRENT</version>
+            <classifier>sources</classifier>
+            <type>zip</type>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
 
     <build>
