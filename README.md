@@ -7,7 +7,6 @@ This plugin is a work in progress but it is intended to provide the following st
 
 * [x] **Run Test** - Run a load test
 * [x] **Check Status** - Check the status of a load test run
-* [ ] **Publish Results to Octane** - Publish the results of a test run to ALM Octane
 * [x] **Publish Results to HTML** - Publish the results of a test run to a file in HTML format
 
 Download the latest version from the _release_ directory and install into Deployment Automation.
@@ -20,7 +19,7 @@ To build the plugin you will need to clone the following repositories (at the sa
  - [plugins-build-parent](https://github.com/sda-community-plugins/plugins-build-parent)
  - [air-plugin-build-script](https://github.com/sda-community-plugins/air-plugin-build-script)
  
- and then compile using the following command
+ and then compile using the following command:
  ```
    mvn clean package
  ```  
@@ -35,3 +34,6 @@ Kevin A. Lee
 kevin.lee@microfocus.com
 
 **Please note: this plugins is provided as a "community" plugin and is not supported by Micro Focus in any way**.
+=======
+# StormRunner Load Plugin
+>>>>>>> a46d9dd514d25ea3a70b10029ac7e735a188355d
