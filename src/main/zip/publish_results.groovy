@@ -19,6 +19,8 @@ final boolean windows = (osName =~ /windows/)
 final boolean vms = (osName =~ /vms/)
 final boolean os9 = (osName =~ /mac/ && !osName.endsWith('x'))
 final boolean unix = (pathSep == ':' && !vms && !os9)
+File workDir = new File('.').canonicalFile
+
 //
 // Initialise the plugin tool and retrieve all the properties that were sent to the step.
 //
@@ -105,7 +107,7 @@ try {
     sb << "<tr> <td> Total Hits </td> <td> " + srlClient.fNull(runResults?.totalHits) + " </td> </tr>"
     sb << "<tr> <td> Total Transactions Passed </td> <td> " + srlClient.fNull(runResults?.totalTransactionsPassed) + " </td> </tr>"
     sb << "<tr> <td> Total Transactions Failed </td> <td> " + srlClient.fNull(runResults?.totalTransactionsFailed) + " </td> </tr>"
-    String url = "${srServerUrl}/run-overview/${runId}/dashboard/?TENANTID=${tenantId}&projectId=${projectId}"
+    String url = "${srlServerUrl}/run-overview/${runId}/dashboard/?TENANTID=${tenantId}&projectId=${projectId}"
     sb << "<tr> <td> Run URL" + "</td> <td> <a href='${url}'  target=_blank>" + url + "</a> </td> </tr>"
     sb << "<br>"
     sb << "</table> </div>"

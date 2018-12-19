@@ -19,6 +19,8 @@ final boolean windows = (osName =~ /windows/)
 final boolean vms = (osName =~ /vms/)
 final boolean os9 = (osName =~ /mac/ && !osName.endsWith('x'))
 final boolean unix = (pathSep == ':' && !vms && !os9)
+File workDir = new File('.').canonicalFile
+
 
 //
 // Initialise the plugin tool and retrieve all the properties that were sent to the step.
@@ -56,7 +58,7 @@ println "-- STEP EXECUTION"
 println "----------------------------------------"
 
 def exitCode = 0
-def runId
+def testRunId
 
 //
 // The main body of the plugin step - wrap it in a try/catch statement for handling any exceptions.
@@ -68,9 +70,9 @@ try {
     srlClient.login()
     srlClient.setDebug(debugMode)
 
-    runId = srlClient.runTest(Long.toString(projectId), Long.toString(testId))
-    String url = "${srlServerUrl}/run-overview/${runId}/dashboard/?TENANTID=${tenantId}&projectId=${projectId}"
-    println "Successfully started test ${testId} as run id: ${runId}"
+    testRunId = srlClient.runTest(Long.toString(projectId), Long.toString(testId))
+    String url = "${srlServerUrl}/run-overview/${testRunId}/dashboard/?TENANTID=${tenantId}&projectId=${projectId}"
+    println "Successfully started test ${testId} as run id: ${testRunId}"
     println "For details see: ${url}"
 
 } catch (StepFailedException e) {
@@ -86,8 +88,8 @@ println "----------------------------------------"
 println "-- STEP OUTPUTS"
 println "----------------------------------------"
 
-apTool.setOutputProperty("runId", runId)
-println("Setting \"runId\" output property to \"${runId}\"")
+apTool.setOutputProperty("testRunId", testRunId)
+println("Setting \"testRunId\" output property to \"${testRunId}\"")
 apTool.setOutputProperties()
 
 //

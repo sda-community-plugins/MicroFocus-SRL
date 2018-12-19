@@ -6,7 +6,7 @@
         <description>
             The Micro Focus StormRunner Load plugin enables you to execute load tests as part of your deployment process.
         </description>
-        <tag>Quality/StormRunner Load</tag>
+        <tag>Quality/Micro Focus/StormRunner Load</tag>
     </header>
     <!-- ==================================== -->
     <!--   PLUGIN STEPS                       -->
@@ -87,7 +87,7 @@
                              description="The id of the project that contains the tests."/>
             </property>
             <property name="runId" required="true">
-                <property-ui type="textBox" label="Test Run Id"
+                <property-ui type="textBox" label="Test Run Id" default-value="${p:prevStep/testRunId}"
                              description="The id of the test run to check the status of."/>
             </property>
             <property name="pollStatus" required="false">
@@ -144,8 +144,8 @@
                 <property-ui type="textBox" default-value="${p:application/srl.projectId}" label="Project Id"
                              description="The id of the project that contains the tests."/>
             </property>
-            <property name="runId" required="true">
-                <property-ui type="textBox" label="Test Run Id"
+            <property name="runId" required="true" >
+                <property-ui type="textBox" label="Test Run Id" default-value="${p:prevStep/testRunId}"
                              description="The id of the test run to check the status of."/>
             </property>
             <property name="outputFile" required="true">

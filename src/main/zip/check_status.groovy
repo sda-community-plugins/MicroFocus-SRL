@@ -19,6 +19,8 @@ final boolean windows = (osName =~ /windows/)
 final boolean vms = (osName =~ /vms/)
 final boolean os9 = (osName =~ /mac/ && !osName.endsWith('x'))
 final boolean unix = (pathSep == ':' && !vms && !os9)
+File workDir = new File('.').canonicalFile
+
 
 //
 // Initialise the plugin tool and retrieve all the properties that were sent to the step.
@@ -72,16 +74,16 @@ try {
     srlClient.login()
     srlClient.setDebug(debugMode)
 
-    runStatus = srlClient.runStatus(Long.toString(runId))
-    println "Test run ${runId} status: ${runStatus}"
+    testRunStatus = srlClient.runStatus(Long.toString(runId))
+    println "Test run ${runId} status: ${testRunStatus}"
 
     if (pollStatus) {
-        while (runStatus.equals("in-progress")) {
+        while (testRunStatus.equals("in-progress")) {
             println "Test run ${runId} is in-progress... sleeping..."
             sleep(pollInterval*1000)
-            runStatus = srlClient.runStatus(Long.toString(runId))
+            testRunStatus = srlClient.runStatus(Long.toString(runId))
         }
-        println "Test run ${runId} final status: ${runStatus}"
+        println "Test run ${runId} final status: ${testRunStatus}"
     }
 
 } catch (StepFailedException e) {
@@ -97,8 +99,11 @@ println "----------------------------------------"
 println "-- STEP OUTPUTS"
 println "----------------------------------------"
 
-apTool.setOutputProperty("runStatus", runStatus)
-println("Setting \"runStatus\" output property to \"${runStatus}\"")
+apTool.setOutputProperty("testRunStatus", testRunStatus)
+println("Setting \"testRunStatus\" output property to \"${testRunStatus}\"")
+apTool.setOutputProperty("testRunId", runId)
+println("Setting \"testRunId\" output property to \"${runId}\"")
+
 apTool.setOutputProperties()
 
 //
