@@ -9,7 +9,10 @@ This plugin is a work in progress but it is intended to provide the following st
 * [x] **Check Status** - Check the status of a load test run
 * [x] **Publish Results to HTML** - Publish the results of a test run to a file in HTML format
 
-Download the latest version from the _release_ directory and install into Deployment Automation.
+### Installing the plugin
+ 
+Download the latest version from the _release_ directory and install into Deployment Automation from the 
+**Administration\Automation\Plugins** page.
 
 ### Building the plugin
 
@@ -25,7 +28,7 @@ To build the plugin you will need to clone the following repositories (at the sa
  ```  
 
 This will create a _.zip_ file in the `target` directory when you can then install into Deployment Automation
-from the **System\Automation** page.
+from the **Administration\Automation\Plugins** page.
 
 If you have any feedback or suggestions on this template then please contact me using the details below.
 
